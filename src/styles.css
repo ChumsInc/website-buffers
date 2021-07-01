@@ -1,0 +1,24 @@
+input.bufferqty {
+  text-align: right;
+  font-size: small;
+  height: calc(1.5rem + 2px); }
+
+.buffer-table th, .buffer-table td {
+  text-align: right;
+  width: 7rem; }
+.buffer-table th:nth-child(1),
+.buffer-table th:nth-child(2),
+.buffer-table th:nth-child(3),
+.buffer-table th:nth-child(4),
+.buffer-table th:nth-child(5),
+.buffer-table th:nth-child(6),
+.buffer-table td:nth-child(1),
+.buffer-table td:nth-child(2),
+.buffer-table td:nth-child(3),
+.buffer-table td:nth-child(4),
+.buffer-table td:nth-child(5),
+.buffer-table td:nth-child(6) {
+  text-align: left;
+  width: auto; }
+
+/*# sourceMappingURL=styles.css.map */

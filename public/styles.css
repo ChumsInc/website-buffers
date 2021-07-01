@@ -1,0 +1,24 @@
+input.bufferqty {
+  width: 4rem;
+  text-align: right;
+  font-size: small;
+  height: calc(1.5rem + 2px); }
+
+#app .form-inline-split {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+#app .progress-bar {
+  height: 5px; }
+#app .buffer-input {
+  max-width: 8rem; }
+#app .form-inline.form-inline--labels-above .form-group {
+  flex-direction: column;
+  align-items: start; }
+  #app .form-inline.form-inline--labels-above .form-group label:not(.form-check-label) {
+    margin: 0 0.5rem;
+    font-size: small; }
+#app .badge-pill + .badge-pill {
+  margin-left: 0.25rem; }
+
+/*# sourceMappingURL=styles.css.map */

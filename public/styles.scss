@@ -1,0 +1,42 @@
+input.bufferqty {
+  width: 4rem;
+  text-align: right;
+  font-size: small;
+  height: calc(1.5rem + 2px);
+}
+
+.buffer-table {
+  //font-family: Roboto Mono, Monospaced;
+}
+
+#app {
+  .form-inline-split {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .progress-bar {
+    height: 5px;
+  }
+
+  .buffer-input {
+    max-width: 8rem;
+  }
+  .form-inline {
+    &.form-inline--labels-above {
+      .form-group {
+        flex-direction: column;
+        align-items: start;
+        label:not(.form-check-label) {
+          margin: 0 0.5rem;
+          font-size: small;
+        }
+      }
+    }
+  }
+
+  .badge-pill + .badge-pill {
+    margin-left: 0.25rem;
+  }
+}
