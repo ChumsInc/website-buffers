@@ -17,5 +17,8 @@ $ui->bodyClassName = 'container-fluid';
 
 $ui->addManifest('public/js/manifest.json');
 $ui->AddCSS("public/styles.css", false, true);
+$ui->AddJS("/node_modules/xlsx/dist/shim.min.js", false, false, false);
+$ui->AddJS("/node_modules/xlsx/dist/xlsx.full.min.js", false, false, false);
+$ui->AddJS('/node_modules/downloadjs/download.min.js');
 
 $ui->Send();

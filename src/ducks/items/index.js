@@ -6,6 +6,7 @@ import {selectProductLine} from "../productLine";
 import {selectCompany} from "../company";
 import {createSelector} from "reselect";
 import {wcToRegex} from "../../utils";
+import {sorter} from "./sort";
 
 export const URL_FETCH_ITEMS = '/api/operations/production/buffer/:company/:itemCode';
 export const URL_POST_BUFFER = '/api/operations/production/buffer/:Company/:ItemCode/:WarehouseCode';
@@ -26,7 +27,14 @@ export const selectSelected = (state) => state.items.selected;
 
 const itemSort = (a, b) => `${a.ItemCode}/${a.WarehouseCode}` > `${b.ItemCode}/${b.WarehouseCode}` ? 1 : -1;
 
-export const selectFilteredList = createSelector(
+/**
+ *
+ * @param {object} sort
+ * @param {object} sort.field
+ * @param {boolean} sort.ascending
+ * @return {*}
+ */
+export const selectFilteredList = (sort) => createSelector(
     selectList,
     selectFilters,
     selectProductLine,
@@ -44,8 +52,8 @@ export const selectFilteredList = createSelector(
             .filter(item => websites === false || (item.shopify || item.b2b || '') > '')
             .filter(item => maxAvailable === null || item.QuantityAvailable <= maxAvailable)
             .filter(item => productLine === '' || item.ProductLine === productLine)
-            .filter(item => itemCode === '' || itemRegEx.test(item.ItemCode) || itemRegEx.test(item.ItemCodeDesc));
-
+            .filter(item => itemCode === '' || itemRegEx.test(item.ItemCode) || itemRegEx.test(item.ItemCodeDesc))
+            .sort(sorter(sort));
     }
 )
 
