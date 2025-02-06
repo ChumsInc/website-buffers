@@ -41,7 +41,7 @@ const itemsSlice = createSlice({
                 state.status = 'idle';
                 itemsAdapter.setAll(state, action.payload)
             })
-            .addCase(loadItems.rejected, (state, action) => {
+            .addCase(loadItems.rejected, (state) => {
                 state.status = 'rejected';
             })
             .addCase(saveItemBuffer.fulfilled, (state, action) => {

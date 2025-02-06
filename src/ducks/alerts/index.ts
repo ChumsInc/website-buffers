@@ -1,4 +1,4 @@
-import {createEntityAdapter, createReducer, isFulfilled, isRejected} from "@reduxjs/toolkit";
+import {createReducer, isFulfilled, isRejected} from "@reduxjs/toolkit";
 import {StyledErrorAlert} from "@/src/types/alerts";
 import {addAlert, dismissAlert} from "@/ducks/alerts/actions";
 import {alertSorter} from "@/ducks/alerts/utils";
