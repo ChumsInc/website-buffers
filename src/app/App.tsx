@@ -17,7 +17,7 @@ const App = () => {
                 <ItemList/>
             </ErrorBoundary>
             <Alert variant="info">
-                <h4 className="alert-heading">Updates</h4>
+                <div className="alert-heading">Updates</div>
                 <hr />
                 <p>Updating the buffer now takes longer because the updated item quantity is now sent to the various
                     websites that sell that item.</p>

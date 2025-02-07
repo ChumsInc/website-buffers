@@ -31,11 +31,11 @@ export default function BufferInput({item}: { item: BufferedItem; }) {
 
     return (
         <InputGroup size="sm" as="form" onSubmit={submitHandler} style={{maxWidth: "9rem"}}>
-            <FormControl value={value || ''} onChange={onChange} type="number" step={1} className="text-end"/>
+            <FormControl value={value || ''} onChange={onChange} type="number" step={1} className="text-end" aria-label={`Buffer Quantity for ${item.ItemCode}`}/>
             <Button type="submit" disabled={status !== 'idle' || value === item.buffer}
                     onClick={submitHandler}
-                    variant={changed ? 'warning' : 'outline-primary'}>
-                <span className="bi-cloud-upload" aria-label="Save"/>
+                    variant={changed ? 'warning' : 'outline-primary'} aria-label="Save">
+                <span className="bi-cloud-upload" aria-hidden="true"/>
             </Button>
         </InputGroup>
     )
