@@ -40,6 +40,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "babel-loader": "^9.2.1",
+    "bootstrap-icons": "^1.11.3",
     "core-js": "^3.10.1",
     "css-loader": "^7.1.2",
     "downloadjs": "^1.4.7",

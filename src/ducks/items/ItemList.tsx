@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {selectFilteredList, selectItemsSort} from "./index";
+import {selectFilteredList, selectItemsSort, setItemsSort} from "./index";
 import {fields} from './itemListFields'
 import ExcelDownloadButton from "./ExcelDownloadButton";
 import {SortProps} from "chums-types";
 import {BufferedItem} from "@/src/types";
-import itemsSlice from "@/ducks/items";
 import {SortableTable, TablePagination} from "sortable-tables";
 import {LocalStore} from "chums-ui-utils";
 import {storeKeys} from "@/app/constants";
 import Stack from "react-bootstrap/Stack";
+import {useAppDispatch, useAppSelector} from "@/app/configureStore";
 
 
 const trClassName = (row: BufferedItem) => {
@@ -20,9 +19,9 @@ const trClassName = (row: BufferedItem) => {
 };
 
 const ItemList = () => {
-    const dispatch = useDispatch();
-    const sort = useSelector(selectItemsSort);
-    const list = useSelector(selectFilteredList);
+    const dispatch = useAppDispatch();
+    const sort = useAppSelector(selectItemsSort);
+    const list = useAppSelector(selectFilteredList);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(LocalStore.getItem(storeKeys.rowsPerPage, 10));
 
@@ -31,7 +30,7 @@ const ItemList = () => {
     }, [list, sort, rowsPerPage]);
 
     const sortChangeHandler = (sort: SortProps<BufferedItem>) => {
-        dispatch(itemsSlice.actions.setItemsSort(sort));
+        dispatch(setItemsSort(sort));
     }
 
     const rowsPerPageChangeHandler = (rpp: number) => {
@@ -40,17 +39,16 @@ const ItemList = () => {
     }
 
     return (
-        <div className="mt-1">
-            <SortableTable<BufferedItem> keyField="ItemCode"
+        <div className="my-3">
+            <SortableTable<BufferedItem> keyField="ItemCode" sticky
                                          data={list.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)}
                                          fields={fields}
-                                         className="mt-1 buffer-table"
                                          rowClassName={trClassName} size="sm"
                                          onChangeSort={sortChangeHandler}
                                          currentSort={sort}/>
             <Stack direction="horizontal" gap={3}>
                 <ExcelDownloadButton/>
-                <TablePagination page={page} onChangePage={setPage} count={list.length} className="ms-auto"
+                <TablePagination page={page} size="sm" onChangePage={setPage} count={list.length} className="ms-auto"
                                  rowsPerPage={rowsPerPage} rowsPerPageProps={{onChange: rowsPerPageChangeHandler}}
                                  showFirst showLast/>
             </Stack>

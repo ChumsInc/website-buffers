@@ -1,23 +1,19 @@
-import React, {ChangeEvent, useEffect, useId} from 'react';
-import {useSelector} from 'react-redux';
-import {useAppDispatch} from "@/app/configureStore";
+import React, {ChangeEvent, useId} from 'react';
+import {useAppDispatch, useAppSelector} from "@/app/configureStore";
 import {FormSelect, InputGroup} from "react-bootstrap";
-import {selectProductLineList} from "@/ducks/productLines";
 import {selectProductLineFilter, setProductLine} from "@/ducks/filters";
-import {loadProductLines} from "@/ducks/productLines/actions";
 import {LocalStore} from "chums-ui-utils";
 import {storeKeys} from "@/app/constants";
+import {useGetProductLinesQuery} from "@/app/services/productLines";
+import {selectProductLineName} from "@/ducks/filters/selectors";
 
 
 export default function ProductLineSelect() {
     const dispatch = useAppDispatch();
-    const productLines = useSelector(selectProductLineList);
-    const value = useSelector(selectProductLineFilter);
+    const value = useAppSelector(selectProductLineFilter);
+    const {data, isFetching} = useGetProductLinesQuery();
+    const productLineName = useAppSelector(selectProductLineName);
     const id = useId();
-
-    useEffect(() => {
-        dispatch(loadProductLines());
-    }, []);
 
 
     const onChange = (ev: ChangeEvent<HTMLSelectElement>) => {
@@ -26,12 +22,11 @@ export default function ProductLineSelect() {
     }
 
     return (
-        <InputGroup size="sm">
+        <InputGroup size="sm" title={productLineName}>
             <InputGroup.Text as="label" htmlFor={id}>Product Line</InputGroup.Text>
-            <FormSelect value={value ?? ''} onChange={onChange}>
+            <FormSelect value={value ?? ''} onChange={onChange} disabled={isFetching} id={id}>
                 <option value="">ALL</option>
-                {productLines
-                    .filter(pl => pl.active)
+                {data && data.filter(pl => pl.active)
                     .map(pl => (
                         <option key={pl.ProductLine}
                                 value={pl.ProductLine}>{pl.ProductLine} - {pl.ProductLineDesc}</option>

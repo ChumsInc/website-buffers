@@ -24,7 +24,7 @@ const initialState = (): FiltersState => {
 
 const filtersSlice = createSlice({
     name: 'filters',
-    initialState: initialState,
+    initialState: initialState ,
     reducers: {
         toggleOnlyBuffered: (state, action: PayloadAction<boolean>) => {
             state.showOnlyBuffered = action.payload;
@@ -72,4 +72,6 @@ export const {
     toggleOnlyBuffered,
     setProductLine
 } = filtersSlice.actions;
+
+
 export default filtersSlice;

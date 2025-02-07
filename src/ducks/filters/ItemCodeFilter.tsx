@@ -1,12 +1,12 @@
 import React, {memo, useEffect, useId, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
 import {FormControl, InputGroup} from "react-bootstrap";
 import {selectItemFilter, setItemCode} from "@/ducks/filters/index";
+import {useAppDispatch, useAppSelector} from "@/app/configureStore";
 
 
 const ItemCodeFilter = () => {
-    const dispatch = useDispatch();
-    const itemCode = useSelector(selectItemFilter);
+    const dispatch = useAppDispatch();
+    const itemCode = useAppSelector(selectItemFilter);
     const id = useId();
     const listId = useId();
 

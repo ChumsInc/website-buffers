@@ -19,8 +19,8 @@ export default function MaxAvailableFilter() {
     return (
         <InputGroup size="sm">
             <InputGroup.Text as="label" htmlFor={id}>Max Available</InputGroup.Text>
-            <FormControl type="number" value={maxAvailable === null ? '' : maxAvailable} className="text-center"
-                         onChange={onChange}/>
+            <FormControl type="number" id={id} className="text-center"
+                         value={maxAvailable === null ? '' : maxAvailable} onChange={onChange}/>
         </InputGroup>
     )
 }

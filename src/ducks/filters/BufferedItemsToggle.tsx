@@ -1,14 +1,13 @@
 import React, {ChangeEvent, useId} from "react";
-import {useDispatch} from "react-redux";
-import {toggleOnlyBuffered, selectShowOnlyBuffered} from "@/ducks/filters/index";
+import {selectShowOnlyBuffered, toggleOnlyBuffered} from "@/ducks/filters/index";
 import {FormCheck} from "react-bootstrap";
 import {LocalStore} from "chums-ui-utils";
 import {storeKeys} from "@/app/constants";
-import {useAppSelector} from "@/app/configureStore";
+import {useAppDispatch, useAppSelector} from "@/app/configureStore";
 
 
 const BufferedItemsToggle = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const id = useId();
     const buffered = useAppSelector(selectShowOnlyBuffered);
 

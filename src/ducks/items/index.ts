@@ -21,16 +21,23 @@ const itemsAdapter = createEntityAdapter<BufferedItem, string>({
     sortComparer: (a, b) => a.ItemCode.localeCompare(b.ItemCode),
 })
 
+interface ItemsSliceExtraState {
+    status: 'idle' | 'loading' | 'rejected';
+    sort: SortProps<BufferedItem>;
+}
+
+const extraState: ItemsSliceExtraState = {
+    status: 'idle' as 'idle' | 'loading' | 'rejected',
+    sort: {field: 'ItemCode', ascending: true} as SortProps<BufferedItem>,
+}
+
 const itemsSlice = createSlice({
     name: 'items',
-    initialState: itemsAdapter.getInitialState({
-        status: 'idle' as 'idle' | 'loading' | 'rejected',
-        sort: {field: 'ItemCode', ascending: true} as SortProps<BufferedItem>
-    }),
+    initialState: itemsAdapter.getInitialState(extraState),
     reducers: {
         setItemsSort: (state, action: PayloadAction<SortProps<BufferedItem>>) => {
             state.sort = action.payload;
-        }
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -64,6 +71,7 @@ const itemsSlice = createSlice({
 });
 
 export const {selectItemsStatus, selectItemsSort} = itemsSlice.selectors;
+export const {setItemsSort} = itemsSlice.actions;
 
 
 const itemSelectors = itemsAdapter.getSelectors<RootState>(

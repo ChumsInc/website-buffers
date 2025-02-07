@@ -1,6 +1,5 @@
 import React, {ChangeEvent, useId} from "react";
-import {useSelector} from "react-redux";
-import {useAppDispatch} from "@/app/configureStore";
+import {useAppDispatch, useAppSelector} from "@/app/configureStore";
 import {FormCheck} from "react-bootstrap";
 import {selectShowOnlyWebsites, toggleShowOnlyWebsites} from "@/ducks/filters/index";
 import {LocalStore} from "chums-ui-utils";
@@ -8,7 +7,7 @@ import {storeKeys} from "@/app/constants";
 
 export default function WebsitesItemsToggle() {
     const dispatch = useAppDispatch();
-    const websitesFilter = useSelector(selectShowOnlyWebsites);
+    const websitesFilter = useAppSelector(selectShowOnlyWebsites);
     const id = useId();
 
     const onChange = (ev: ChangeEvent<HTMLInputElement>) => {

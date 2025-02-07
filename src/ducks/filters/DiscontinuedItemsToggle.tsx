@@ -1,15 +1,15 @@
 import React, {ChangeEvent, useId} from "react";
-import {useDispatch, useSelector} from "react-redux";
 import {selectShowInactive, toggleShowInactive} from "@/ducks/filters/index";
 import {FormCheck} from "react-bootstrap";
 import {LocalStore} from "chums-ui-utils";
 import {storeKeys} from "@/app/constants";
+import {useAppDispatch, useAppSelector} from "@/app/configureStore";
 
 
 const DiscontinuedItemsToggle = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const id = useId();
-    const showInactive = useSelector(selectShowInactive);
+    const showInactive = useAppSelector(selectShowInactive);
 
     const changeHandler = (ev: ChangeEvent<HTMLInputElement>) => {
         LocalStore.setItem(storeKeys.showInactive, ev.target.checked);
