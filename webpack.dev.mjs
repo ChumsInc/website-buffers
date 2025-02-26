@@ -20,7 +20,7 @@ export default merge(common, {
         ],
         hot: true,
         proxy: [
-            {context: ['/api'], ...localProxy},
+            {context: ['/api', '/apps'], ...localProxy},
         ],
         watchFiles: path.join(process.cwd(), 'src/**/*')
     },
