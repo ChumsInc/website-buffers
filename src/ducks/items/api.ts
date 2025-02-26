@@ -1,5 +1,5 @@
 import {BufferedItem} from "@/src/types";
-import {fetchJSON} from "chums-ui-utils";
+import {fetchJSON} from "@chumsinc/ui-utils";
 
 export const URL_FETCH_ITEMS = '/api/operations/production/buffer/chums/:itemCode?:params';
 export const URL_POST_BUFFER = '/api/operations/production/buffer/chums/:itemCode/:warehouseCode';

@@ -49,7 +49,7 @@ function ExcelDownloadButton() {
 
     return (
         <Button type="button" size="sm" variant="outline-primary" onClick={clickHandler} disabled={disabled}>
-            Download
+            Download Items
         </Button>
     )
 }

@@ -2,7 +2,7 @@ import React, {ChangeEvent, useId} from "react";
 import {useAppDispatch, useAppSelector} from "@/app/configureStore";
 import {FormCheck} from "react-bootstrap";
 import {selectShowOnlyWebsites, toggleShowOnlyWebsites} from "@/ducks/filters/index";
-import {LocalStore} from "chums-ui-utils";
+import {LocalStore} from "@chumsinc/ui-utils";
 import {storeKeys} from "@/app/constants";
 
 export default function WebsitesItemsToggle() {

@@ -2,7 +2,7 @@ import React, {ChangeEvent, useId} from 'react';
 import {useAppDispatch, useAppSelector} from "@/app/configureStore";
 import {FormSelect, InputGroup} from "react-bootstrap";
 import {selectProductLineFilter, setProductLine} from "@/ducks/filters";
-import {LocalStore} from "chums-ui-utils";
+import {LocalStore} from "@chumsinc/ui-utils";
 import {storeKeys} from "@/app/constants";
 import {useGetProductLinesQuery} from "@/app/services/productLines";
 import {selectProductLineName} from "@/ducks/filters/selectors";

@@ -2,7 +2,7 @@ import React, {ChangeEvent, useId} from 'react';
 import {useAppDispatch, useAppSelector} from "@/app/configureStore";
 import {selectMaxAvailable, setMaxAvailable} from "@/ducks/filters/index";
 import {FormControl, InputGroup} from "react-bootstrap";
-import {LocalStore} from "chums-ui-utils";
+import {LocalStore} from "@chumsinc/ui-utils";
 import {storeKeys} from "@/app/constants";
 
 export default function MaxAvailableFilter() {

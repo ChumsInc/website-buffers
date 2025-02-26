@@ -23,6 +23,7 @@
       "@/components/*": ["./components/*"],
       "@/ducks/*": ["./ducks/*"],
       "@/types/*": ["./types/*"],
+      "@/utils/*": ["./utils/*"],
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

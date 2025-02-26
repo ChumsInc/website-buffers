@@ -4,11 +4,12 @@ import {fields} from './itemListFields'
 import ExcelDownloadButton from "./ExcelDownloadButton";
 import {SortProps} from "chums-types";
 import {BufferedItem} from "@/src/types";
-import {SortableTable, TablePagination} from "sortable-tables";
-import {LocalStore} from "chums-ui-utils";
+import {SortableTable, TablePagination} from "@chumsinc/sortable-tables";
+import {LocalStore} from "@chumsinc/ui-utils";
 import {storeKeys} from "@/app/constants";
 import Stack from "react-bootstrap/Stack";
 import {useAppDispatch, useAppSelector} from "@/app/configureStore";
+import AppVersion from "@/components/AppVersion";
 
 
 const trClassName = (row: BufferedItem) => {
@@ -47,6 +48,7 @@ const ItemList = () => {
                                          onChangeSort={sortChangeHandler}
                                          currentSort={sort}/>
             <Stack direction="horizontal" gap={3}>
+                <AppVersion />
                 <ExcelDownloadButton/>
                 <TablePagination page={page} size="sm" onChangePage={setPage} count={list.length} className="ms-auto"
                                  rowsPerPage={rowsPerPage} rowsPerPageProps={{onChange: rowsPerPageChangeHandler}}

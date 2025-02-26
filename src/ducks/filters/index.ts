@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {LocalStore} from "chums-ui-utils";
+import {LocalStore} from "@chumsinc/ui-utils";
 import {storeKeys} from "@/app/constants";
 
 export interface FiltersState {

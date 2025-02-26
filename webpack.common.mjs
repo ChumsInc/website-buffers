@@ -29,11 +29,12 @@ export default {
     },
     resolve: {
         alias: {
-            "@/src": path.resolve(process.cwd(), 'src'),
+            "@/": path.resolve(process.cwd(), 'src'),
             "@/app": path.resolve(process.cwd(), 'src/app'),
             "@/components": path.resolve(process.cwd(), 'src/components'),
             "@/ducks": path.resolve(process.cwd(), 'src/ducks'),
             "@/types": path.resolve(process.cwd(), 'src/types'),
+            "@/utils": path.resolve(process.cwd(), 'src/utils'),
         },
         extensions: ['.tsx', '.ts', '.js'],
     },

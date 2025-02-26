@@ -13,7 +13,8 @@ import {
     selectShowOnlyBuffered,
     selectShowOnlyWebsites
 } from "@/ducks/filters";
-import {wcToRegex} from "@/src/utils";
+import {wcToRegex} from "@/utils/regex";
+
 import {dismissAlert} from "@/ducks/alerts/actions";
 
 const itemsAdapter = createEntityAdapter<BufferedItem, string>({

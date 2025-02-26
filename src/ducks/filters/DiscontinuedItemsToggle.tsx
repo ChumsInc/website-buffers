@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useId} from "react";
 import {selectShowInactive, toggleShowInactive} from "@/ducks/filters/index";
 import {FormCheck} from "react-bootstrap";
-import {LocalStore} from "chums-ui-utils";
+import {LocalStore} from "@chumsinc/ui-utils";
 import {storeKeys} from "@/app/constants";
 import {useAppDispatch, useAppSelector} from "@/app/configureStore";
 
